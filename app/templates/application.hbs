@@ -1,3 +1,23 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="ui text container">
+	<div class="ui dividing header">Heading</div>
+</div>
 
-{{outlet}}
+
+{{#if session.isAuthenticated}}
+	Logged in as 
+	{{#if session.currentUser.displayName}}
+		{{session.currentUser.displayName}}
+	{{else}}
+		{{session.currentUser.email}}
+	{{/if}}
+	<button {{action 'signOut'}}>Sign Out</button>
+	{{outlet}}
+{{else}}
+	<button {{action 'signIn' 'twitter'}}>Sign in with Twitter</button>
+
+	<div>
+		{{input type="text" value=userEmail placeholder="Email"}} <br>
+		{{input type="password" value=userPassword placeholder="Password"}} <br>
+		<button {{action "formLogin"}}>Login</button>
+	</div>
+{{/if}}
