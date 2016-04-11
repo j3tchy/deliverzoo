@@ -1,23 +1,55 @@
-<div class="ui text container">
-	<div class="ui dividing header">Heading</div>
-</div>
-
+{{#unless session.isAuthenticated}}
+	<div class="login">
+		<div class="ui text container center aligned">
+			<h2 class="ui header">Sign-in</h2>
+		</div>
+		<div class="ui six column centered grid">
+			<div class="column center aligned">
+				<button class="ui facebook button fluid" {{action 'signIn' 'facebook'}}>
+					<i class="facebook icon"></i>
+					Facebook
+				</button>
+			</div>
+			<div class="column center aligned">
+				<button class="ui twitter button fluid" {{action 'signIn' 'twitter'}}>
+					<i class="twitter icon"></i>
+					Twitter
+				</button>
+			</div>
+		</div>
+		<div class="ui centered grid">
+			<div class="six wide column">
+				<div class="ui horizontal divider">OR</div>
+			</div>
+			
+		</div>
+		<div class="ui three column centered grid center aligned">
+			<div class="column">
+				<form action="" class="ui large form" {{action 'formLogin' on='submit'}}>
+					<div class="ui tall stacked segment">
+						<div class="field">
+							<div class="iu left input icon">
+								{{input type="text" value=userEmail placeholder="Email"}}
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui left input icon">
+								{{input type="password" value=userPassword placeholder="Password"}}
+							</div>
+						</div>
+						{{#if session.isWorking}}
+							<button class="ui fluid large blue loading button">Loading</button>
+						{{else}}
+							<button type="submit" class="ui fluid large blue submit button">Login</button>
+						{{/if}}
+					</div>
+				</form>			
+			</div>		
+		</div>
+	</div>
+{{/unless}}
 
 {{#if session.isAuthenticated}}
-	Logged in as 
-	{{#if session.currentUser.displayName}}
-		{{session.currentUser.displayName}}
-	{{else}}
-		{{session.currentUser.email}}
-	{{/if}}
-	<button {{action 'signOut'}}>Sign Out</button>
+<button {{action 'signOut'}}>Sign Out</button>
 	{{outlet}}
-{{else}}
-	<button {{action 'signIn' 'twitter'}}>Sign in with Twitter</button>
-
-	<div>
-		{{input type="text" value=userEmail placeholder="Email"}} <br>
-		{{input type="password" value=userPassword placeholder="Password"}} <br>
-		<button {{action "formLogin"}}>Login</button>
-	</div>
 {{/if}}

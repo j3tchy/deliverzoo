@@ -1,0 +1,12 @@
+body {
+	background-color: #F4F4F4;
+}
+
+.login {
+	padding-top: 5%; 
+}
+
+.login h2.ui.header {
+	margin-bottom: 25px;
+}
+

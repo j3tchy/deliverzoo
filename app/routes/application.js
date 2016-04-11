@@ -20,7 +20,6 @@ export default Ember.Route.extend({
 			var email = controller.get('userEmail');
 			var password = controller.get('userPassword');
 
-
 			this.get('session').open('firebase', {
 				provider: 'password',
 				email: email,
