@@ -10,3 +10,10 @@ body {
 	margin-bottom: 25px;
 }
 
+@media screen and (min-width: 723px){
+	.login .container .column.login-panel {
+		width: 450px;
+	}
+}
+
+
