@@ -1,5 +1,5 @@
-body {
-	background-color: #F4F4F4;
+body.pushable {
+	background-color: #F4F4F4 !important;
 }
 
 .login {
@@ -10,10 +10,35 @@ body {
 	margin-bottom: 25px;
 }
 
+/*.toc {
+	width: 260px;
+	position: relative;
+	z-index: 1;
+}*/
+
 @media screen and (min-width: 723px){
 	.login .container .column.login-panel {
 		width: 450px;
 	}
+}
+
+@media screen and (min-width: 993px){
+	.sidebar {
+		/*visibility: visible;*/
+	}
+}
+
+@media screen and (min-width: 1145px){
+/*	.toc {
+		position: relative;;
+		z-index: 1;
+		display: block;
+		width: 260px;
+	}
+
+	.fixed.menu {
+		display: none;
+	}*/
 }
 
 
